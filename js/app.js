@@ -1,5 +1,6 @@
 "use strict";
 
-(function(){
-  angular.module("wdinstagram", [])
-})();
+
+  angular.module("wdinstagram", [
+    "ui.router"
+  ])
