@@ -3,17 +3,24 @@
 
   angular
     .module("wdinstagram", [
-          "ui.router"
+          "ui.router",
+          "ngResource"
   ])
     .config([
         "$stateProvider",
         RouterFunction
       ])
+      .factory("WdInstaFactory", [
+        "$resource",
+        WdInstaFactoryFunction
+      ])
     .controller("WdInstaIndexController", [
+          "WdInstaFactory",
           WdInstaIndexControllerFunction
     ])
     .controller("WdInstaShowController", [
-      WdInstaShowControllerFunction
+        "WdInstaFactory",
+        WdInstaShowControllerFunction
     ])
 
     function RouterFunction($stateProvider) {
@@ -32,13 +39,18 @@
         })
     }
 
-
-
-    function WdInstaIndexControllerFunction () {
-      this.wdinstagrams = wdinstagrams
-
+    function WdInstaFactoryFunction( $resource ) {
+      return $resource( "http://localhost:3000/entries", {}, {
+        update: { method: "PUT" }
+      }); 
     }
 
-    function WdInstaShowControllerFunction ($stateParams) {
-      this.wdinstagram = wdinstagrams[$stateParams.id]
+    function WdInstaIndexControllerFunction ( WdInstaFactory) {
+      this.wdinstagrams = WdInstaFactory.query()
+      console.log(this.wdinstagrams)
+    }
+
+    function WdInstaShowControllerFunction ( WdInstaFactory, $stateParams) {
+      this.wdinstagram = WdInstaFactory.get({id: $stateParams.id})
+      console.log(this.wdistagram)
     }

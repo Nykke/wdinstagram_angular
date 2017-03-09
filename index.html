@@ -15,22 +15,23 @@
     <h5>"Code it for the gram"</h5>
     <script>
      var wdinstagrams = {
-       handle: "Nykke",
+       author: "Nykke",
        photo_url: "http://static.boredpanda.com/blog/wp-content/uploads/2015/07/panda-daycare-nursery-chengdu-research-base-breeding-8.jpg",
-       caption: "do it for the gram"
+       body: "do it for the gram"
 
      }
 
     </script>
+    <h1><a data-ui-sref="wdinstaIndex">all da grams</a></h1>
     <div ui-view>
-      <h2>all da grams</h2>
-      <div data-ng-controller="WdInstaIndexController as vm">
+      <!-- <h2>all da grams</h2> -->
+      <!-- <div data-ng-controller="WdInstaIndexController as vm"> -->
         <!-- <div data-ng-repeat="wdinstagram in vm.wdinstagrams">
 
           <p><a data-ui-sref="instaShow({id: $index})">{{vm.caption}}</a></p>
 
         </div> -->
-      </div>
+      <!-- </div> -->
 
     </div>
   </body>
