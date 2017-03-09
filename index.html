@@ -11,6 +11,27 @@
     <script src="js/app.js"></script>
   </head>
   <body>
-      {{5+10}}
+    <h1>WDI INSTAGRAM!</h1>
+    <h5>"Code it for the gram"</h5>
+    <script>
+     var wdinstagrams = {
+       handle: "Nykke",
+       photo_url: "http://static.boredpanda.com/blog/wp-content/uploads/2015/07/panda-daycare-nursery-chengdu-research-base-breeding-8.jpg",
+       caption: "do it for the gram"
+
+     }
+
+    </script>
+    <div ui-view>
+      <h2>all da grams</h2>
+      <div data-ng-controller="WdInstaIndexController as vm">
+        <!-- <div data-ng-repeat="wdinstagram in vm.wdinstagrams">
+
+          <p><a data-ui-sref="instaShow({id: $index})">{{vm.caption}}</a></p>
+
+        </div> -->
+      </div>
+
+    </div>
   </body>
 </html>
